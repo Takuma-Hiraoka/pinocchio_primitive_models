@@ -4,6 +4,11 @@
 #include <memory>
 
 namespace pinocchio_primitive_models{
+  void createBox(const Eigen::Vector3d& size, const double& mass, pinocchio::Model& model) {
+    pinocchio::GeometryModel cmodel;
+    createBox(size, mass, model, cmodel);
+  }
+
   void createBox(const Eigen::Vector3d& size, const double& mass, pinocchio::Model& model, pinocchio::GeometryModel& cmodel) {
 
     pinocchio::JointIndex jointId = model.addJoint(0, pinocchio::JointModelFreeFlyer(), pinocchio::SE3::Identity(), "base_joint");
